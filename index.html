@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="images/redcoin.png" rel="shortcut icon">
+  <link rel="stylesheet" href="style.css">
+  <!-- font aswome  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+
+  <title>Cent a Feed</title>
+</head>
+
+<body bgcolor="#15171c" text="#000000" link="#006699" vlink="#006699" alink="#006699">
+
+  <div class="container-fluid mt-2">
+    <div class="row justify-content-center">
+      <div class="col-lg-2 col-md-4 col-sm-12">
+        <div style="display: flex;" id="logoDiv">
+          <img src="images/redcoin.png" class="picture" style="width: 80px; height: 80px;">
+          <div class="logo_text" style="font-weight: bold; font-family: sans-serif; color: white; padding-top: 24px;">Cent a Feed</div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-8 col-sm-12 search_desktop_column">
+        <div id="searchContainer" class="mt-3 searchContainer searchContainer_desktop">
+          <input id="searchDiv" data-find="<?php echo $user; ?>" type="text" name="find" placeholder="Search..."
+            style="padding-left: 20px; outline: none; border: none; background-color: transparent; font-size: 20px; font-weight: bold; color: #eaeaea;">
+          <img src="images/search.png" id="searchButtonGrey" style="width: 25px; height: 25px; margin-top: 3px; margin-left: auto; margin-right: 12.5px;">
+          <img src="images/searchred.png" id="searchButtonRed" style="display: none; width: 36px; height: 36px; margin-top: 1px; margin-left: auto; margin-right: 3px;">
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-12 col-sm-12 text-end px-3">
+        <div class="space mt-3">
+          <ul class="nav d-flex desktop_menu_bar">
+            <li class="nav-item lh-sm"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item lh-sm"><a href="#" class="nav-link">Terms</a></li>
+            <li class="nav-item lh-sm"><a href="#" class="nav-link">Privacy</a></li>
+            <li class="nav-item lh-sm"><a href="#" class="nav-link">Login</a></li>
+            <li class="nav-item lh-sm"><a href="#" class="nav-link">Create Account</a></li>
+          </ul>
+        </div>
+
+        <a class="btn menu_bar d-none" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+          <i class="fa fa-bars text-white h5"></i>
+        </a>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Menus</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="nav flex-column">
+              <li class="nav-item lh-sm"><a href="#" class="nav-link">About</a></li>
+              <li class="nav-item lh-sm"><a href="#" class="nav-link">Terms</a></li>
+              <li class="nav-item lh-sm"><a href="#" class="nav-link">Privacy</a></li>
+              <li class="nav-item lh-sm"><a href="#" class="nav-link">Login</a></li>
+              <li class="nav-item lh-sm"><a href="#" class="nav-link">Create Account</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="searchContainer" class=" searchContainer searchContainer_mobile d-none">
+      <input id="searchDiv" data-find="<?php echo $user; ?>" type="text" name="find" placeholder="Search..." style="padding-left: 20px; outline: none; border: none; background-color: transparent; font-size: 20px; font-weight: bold; color: #eaeaea;">
+      <img src="images/search.png" id="searchButtonGrey" style="width: 25px; height: 25px; margin-top: 3px; margin-left: auto; margin-right: 12.5px;">
+      <img src="images/searchred.png" id="searchButtonRed" style="display: none; width: 36px; height: 36px; margin-top: 1px; margin-left: auto; margin-right: 3px;">
+    </div>
+    <div class="row filter_row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8 pt-3 filter_row_top_pd">
+        <div style="display: flex;color: #7d7d7d; font-size: 33px;">
+          <div id="minfilter" style="display: flex; width: 14%; outline: none; border: 2px solid #2d2d2d; border-radius: 25px; background-color: #272727; font-family: sans-serif;">
+            <div style="margin-top: 8px; margin-left: 10px;font-size: 17px;">R</div>
+            <input id="minimum" type="text" name="minimum" placeholder="min price" style="width: 90%; height: 40px; padding-left: 5px; outline: none; border: none; background-color: transparent; font-size: 17px; font-weight: bold; color: #eaeaea;">
+          </div>
+          <span style="margin-left: 20px; margin-right: 20px;"> - </span>
+          <div id="maxfilter" style="display: flex; width: 14%; outline: none; border: 2px solid #2d2d2d; border-radius: 25px; background-color: #272727; font-family: sans-serif;">
+            <div style="margin-top: 8px; margin-left: 10px;font-size: 17px;">R</div>
+            <input id="maximum" type="text" name="maximum" placeholder="max price" style="width: 90%; height: 40px; padding-left: 5px; outline: none; border: none; background-color: transparent; font-size: 17px; font-weight: bold; color: #eaeaea;">
+          </div>
+          <div class="go_btn" style="font-size: 22px; font-family: sans-serif; margin-top: 9px; margin-left: 30px; color: #6cb7f3;">Go</div>
+        </div>
+        <br>
+        <div style="font-size: 30px; font-family: sans-serif; color: #cbcbcb;">Latest Feed</div>
+      </div>
+      <!-- <div class="col-lg-8"></div> -->
+    </div>
+    <br>
+    <div class="row product_rows">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+
+        <!-- product starts here -->
+        <div class="row product_rows_content ">
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-3 product_image_container">
+            <img src="images/jblGO3.jpeg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-5 col-sm-12 col-md-8 mb-3 text-white">
+            <h5>JBL Go 3 Waterproof Portable Bluetooth Speaker Black</h5>
+            <p>The JBL Go 3 features bold styling and rich JBL Pro Sound, with its new eye-catching edgy design colourful fabrics and expressive details.. <b>more</b> </p>
+
+            <div style="border: 2px solid #2d2d2d; border-radius: 5px; padding: 5px; margin-top: 10px; margin-bottom: 10px; background-color: #272727;">
+              <div style="font-size: 18px; color: #6cb7f3; margin-bottom: 2px;">Takealot.com</div>
+              <div style="font-size: 25px; font-weight: bold; color: #cbcbcb;">R649.00</div>
+            </div>
+            <div class="d-flex fw-bolder">
+              <span style="margin-right:10px;margin-left:4px;">Like 0</span>
+              <span style="margin-right:40px;">Dislike 0</span>
+              <span>Comments 0</span>
+            </div>
+          </div>
+        </div>
+        <!-- product ends here -->
+
+        <div class="row py-4">
+          <div class="col-lg-9 col-md-8">
+            <hr style="background-color:white;">
+          </div>
+        </div>
+        <!--This is divider-->
+
+        <!-- product starts here -->
+        <div class="row product_rows_content ">
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-3 product_image_container">
+            <img src="images/jblGO3.jpeg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-5 col-sm-12 col-md-8 mb-3 text-white">
+            <h5>JBL Go 3 Waterproof Portable Bluetooth Speaker Black</h5>
+            <p>The JBL Go 3 features bold styling and rich JBL Pro Sound, with its new eye-catching edgy design colourful fabrics and expressive details.. <b>more</b> </p>
+
+            <div style="border: 2px solid #2d2d2d; border-radius: 5px; padding: 5px; margin-top: 10px; margin-bottom: 10px; background-color: #272727;">
+              <div style="font-size: 18px; color: #6cb7f3; margin-bottom: 2px;">Takealot.com</div>
+              <div style="font-size: 25px; font-weight: bold; color: #cbcbcb;">R649.00</div>
+            </div>
+            <div class="d-flex fw-bolder">
+              <span style="margin-right:10px;margin-left:4px;">Like 0</span>
+              <span style="margin-right:40px;">Dislike 0</span>
+              <span>Comments 0</span>
+            </div>
+          </div>
+        </div>
+        <!-- product ends here -->
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $("[data-find]").focus(function() {
+      $(".searchContainer").css("border", "thick solid #b32116");
+    });
+
+    $("[data-find]").blur(function() {
+      $(".searchContainer").css("border", "thick solid #2d2d2d");
+    });
+
+    $("[data-find]").keyup(function() {
+      var text = $("[data-find]").val();
+
+      if (text != '') {
+
+        $("#searchButtonGrey").hide();
+        $("#searchButtonRed").show();
+
+      } else {
+
+        $("#searchButtonGrey").show();
+        $("#searchButtonRed").hide();
+      }
+    });
+
+
+    $("#minimum").focus(function() {
+      $("#minfilter").css("border", "2px solid #b32116");
+    });
+
+    $("#minimum").blur(function() {
+      $("#minfilter").css("border", "2px solid #2d2d2d");
+    });
+
+    $("#maximum").focus(function() {
+      $("#maxfilter").css("border", "2px solid #b32116");
+    });
+
+    $("#maximum").blur(function() {
+      $("#maxfilter").css("border", "2px solid #2d2d2d");
+    });
+
+    // detect device width and height.
+
+    function get_display() {
+      var x = screen.width;
+      var y = screen.height;
+      if (x < 761) {
+        $(".search_desktop_column").hide();
+      } else {
+        $(".search_desktop_column").show();
+      }
+    }
+
+    $(window).resize(function() {
+      get_display();
+    });
+  </script>
+</body>
+
+</html>
