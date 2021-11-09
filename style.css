@@ -80,14 +80,17 @@ body {
     display: inline!important;
   }
   #minfilter{
-    width: 65%!important;
+    width: 100%!important;
   }
   #maxfilter{
-    width: 65%!important;
+    width: 100%!important;
   }
   .filter_row{
     position: relative;
     top: 0px!important;
+  }
+  .filter_div{
+    display: block!important;
   }
   .product_rows{
     position: relative;
@@ -111,5 +114,6 @@ body {
   }
   .go_btn{
     display: block!important;
+    margin-left: 5px!important;
   }
 }
